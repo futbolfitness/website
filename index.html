@@ -115,7 +115,7 @@
       <p class="tagline">Train Hard. Play Harder. Build the body behind the skills — strength, balance, speed, and injury resilience.</p>
       <div class="hero-buttons">
         <a href="#about" class="btn btn-primary">Learn More</a>
-        <a href="#register" class="btn btn-outline">Register Interest</a>
+        <a href="#register" class="btn btn-outline">Register</a>
       </div>
     </div>
   </section>
@@ -173,7 +173,7 @@
 
   <section class="register" id="register">
     <div class="container">
-      <h2 class="section-title">Register Interest</h2>
+      <h2 class="section-title">Register</h2>
       <p class="section-subtitle">November & December sessions are open. Choose a preferred time below.</p>
       <div class="register-wrapper">
         <div class="register-info">
@@ -233,7 +233,7 @@
               <label for="notes">Anything else we should know?</label>
               <textarea id="notes" name="notes" rows="3" placeholder="Injuries, goals, second-choice time, questions…"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary form-submit">Submit Interest</button>
+            <button type="submit" class="btn btn-primary form-submit">Submit</button>
           </form>
           <div class="form-success" id="form-success">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
@@ -308,7 +308,7 @@
       } catch (err) {
         console.error(err);
         alert('Something went wrong. Please try again.');
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit Interest'; }
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit'; }
       }
       return false;
     }
@@ -319,7 +319,7 @@
       form.style.display = 'block';
       success.classList.remove('show');
       const btn = form.querySelector('.form-submit');
-      if (btn) { btn.disabled = false; btn.textContent = 'Submit Interest'; }
+      if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
     }
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
