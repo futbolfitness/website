@@ -693,11 +693,31 @@
   <section class="schedule" id="schedule">
     <div class="container">
       <h2 class="section-title">Schedule</h2>
-      <p class="section-subtitle">Times and locations will be posted here when the next block opens.</p>
+      <p class="section-subtitle">November & December block — space secured at the fieldhouse through the end of the year.</p>
+
       <div class="sessions-grid" id="sessions-container">
-        <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 1.5rem; background: white; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.06); border: 1px solid rgba(155,27,27,0.1);">
-          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--red); letter-spacing: 2px; margin-bottom: 0.5rem;">Coming Soon</p>
-          <p style="color: var(--gray); max-width: 420px; margin: 0 auto;">We're lining up space and times. Register your interest below and we'll notify you when sessions are available — groups of 6, one hour each.</p>
+        <div style="grid-column: 1 / -1; padding: 2.25rem 1.75rem; background: white; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.06); border: 1px solid rgba(155,27,27,0.1);">
+          <p style="font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--red); letter-spacing: 2px; margin-bottom: 0.35rem; text-align: center;">Fall Block · Nov–Dec 2026</p>
+          <p style="color: var(--gray); text-align: center; margin-bottom: 1.5rem; max-width: 520px; margin-left: auto; margin-right: auto;">1-hour sessions · max 6 athletes · speed, agility, strength, balance & mobility</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.85rem; max-width: 720px; margin: 0 auto 1.25rem;">
+            <div style="background: var(--off-white); border-radius: 10px; padding: 1rem 1.15rem; border-left: 4px solid var(--red);">
+              <strong style="color: var(--red); display: block; margin-bottom: 0.15rem;">Tuesdays</strong>
+              <span style="color: var(--gray); font-size: 0.95rem;">Open — evenings available</span>
+            </div>
+            <div style="background: var(--off-white); border-radius: 10px; padding: 1rem 1.15rem; border-left: 4px solid var(--red);">
+              <strong style="color: var(--red); display: block; margin-bottom: 0.15rem;">Thursdays</strong>
+              <span style="color: var(--gray); font-size: 0.95rem;">Open — evenings available</span>
+            </div>
+            <div style="background: var(--off-white); border-radius: 10px; padding: 1rem 1.15rem; border-left: 4px solid var(--red);">
+              <strong style="color: var(--red); display: block; margin-bottom: 0.15rem;">Mondays</strong>
+              <span style="color: var(--gray); font-size: 0.95rem;">Available after 7:00 PM</span>
+            </div>
+            <div style="background: var(--off-white); border-radius: 10px; padding: 1rem 1.15rem; border-left: 4px solid var(--red);">
+              <strong style="color: var(--red); display: block; margin-bottom: 0.15rem;">Wednesdays</strong>
+              <span style="color: var(--gray); font-size: 0.95rem;">Available after 6:00 PM</span>
+            </div>
+          </div>
+          <p style="color: var(--gray); text-align: center; font-size: 0.95rem; max-width: 480px; margin: 0 auto;">Exact start times will be set once interest is in. Register below and note your preferred day — groups of 6 fill first.</p>
         </div>
       </div>
     </div>
@@ -706,7 +726,8 @@
   <section class="register" id="register">
     <div class="container">
       <h2 class="section-title">Register Interest</h2>
-      <p class="section-subtitle">Tell us you're interested. We'll reach out when the next sessions are set.</p>
+      <p class="section-subtitle">November & December sessions are open. Tell us your preferred day and we’ll confirm times.</p>
+
       <div class="register-wrapper">
         <div class="register-info">
           <h3>What Sessions Look Like</h3>
@@ -716,9 +737,11 @@
             <li>Very little ball work — this is athletic development</li>
             <li>Build weaker areas to help prevent injury</li>
             <li>Improve dynamic movement so skills transfer better on the field</li>
+            <li>Fieldhouse space locked for Nov–Dec</li>
           </ul>
-          <p style="font-size: 0.9rem; color: var(--gray);">Bring water and athletic wear. All levels welcome. We'll confirm details by email when times and space are locked in.</p>
+          <p style="font-size: 0.9rem; color: var(--gray);">Bring water and athletic wear. All levels welcome. Prefer Tue/Thu evenings, or Mon after 7 / Wed after 6 — note your preference in the form.</p>
         </div>
+
         <div class="form-card">
           <form id="reg-form" onsubmit="return handleRegister(event)">
             <div class="form-row">
@@ -733,32 +756,36 @@
             </div>
             <div class="form-group">
               <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required placeholder="you@email.com" />
+              <input type="email" id="email" name="email" required placeholder="parent@email.com" />
             </div>
             <div class="form-group">
               <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" />
+              <input type="tel" id="phone" name="phone" placeholder="(330) 555-0100" />
             </div>
             <div class="form-group">
-              <label for="experience">Soccer / Fitness Experience</label>
+              <label for="playerName">Player Name</label>
+              <input type="text" id="playerName" name="playerName" placeholder="If different from above" />
+            </div>
+            <div class="form-group">
+              <label for="experience">Experience Level</label>
               <select id="experience" name="experience">
-                <option value="beginner">Beginner – new to this</option>
-                <option value="some">Some experience</option>
-                <option value="regular">Play or train regularly</option>
-                <option value="advanced">Advanced / competitive</option>
+                <option value="">Select...</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Club / Rec">Club / Rec</option>
+                <option value="Travel / Premier">Travel / Premier</option>
+                <option value="High School">High School</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="notes">Anything else we should know?</label>
-              <textarea id="notes" name="notes" rows="3" placeholder="Injuries, goals, preferred days, questions…"></textarea>
+              <label for="notes">Preferred day / notes</label>
+              <textarea id="notes" name="notes" rows="3" placeholder="e.g. Tuesdays preferred, or any questions"></textarea>
             </div>
             <button type="submit" class="btn btn-primary form-submit">Submit Interest</button>
           </form>
           <div class="form-success" id="form-success">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            <h3>You're on the list!</h3>
-            <p>Thanks for your interest. We'll contact you when the next sessions and times are confirmed.</p>
-            <button class="btn btn-primary" style="margin-top: 1.25rem;" onclick="resetForm()">Submit Another</button>
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <h3>Got it!</h3>
+            <p>Thanks — we’ll follow up when times are set for November–December.</p>
           </div>
         </div>
       </div>
@@ -769,126 +796,90 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="logo-white.png" alt="Futbol Fitness" />
-        <p>Small-group athletic development for soccer players — speed, strength, balance, and injury resilience.</p>
+        <p>Train Hard. Play Harder. Small-group athletic development for soccer players.</p>
       </div>
       <div class="footer-col">
         <h4>Navigate</h4>
         <a href="#home">Home</a>
+        <a href="#about">About</a>
         <a href="#schedule">Schedule</a>
         <a href="#register">Register</a>
-        <a href="#about">About</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <p>Questions? Reach out and we'll get back to you.</p>
-        <p style="margin-top: 0.75rem;">Ohio, USA</p>
+        <p>Questions? Reach out when you register or reply to confirmation emails.</p>
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; <span id="year"></span> Futbol Fitness. All rights reserved.
+      <p>&copy; <span id="year"></span> Futbol Fitness. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZnQ7k5SX5l2Nt0sXcg8P4Z0Ohd-A6oZYQtppS1iBYTEB5S8Sprb5pA9S6eeyXo1W4/exec';
-    const GOOGLE_SHEET_URL  = 'https://docs.google.com/spreadsheets/d/1imFHbEVgyk6tVPBRNTy1PwObA6BZRqTxCLz1cErf8vY/edit';
+
+    function formatTimestamp() {
+      const now = new Date();
+      return now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) + ' ' +
+             now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+    }
 
     const SESSIONS = [];
 
     function renderSessions() {
       const container = document.getElementById('sessions-container');
-      if (!container || !SESSIONS.length) return;
+      if (!container) return;
+      if (!SESSIONS.length) return;
       container.innerHTML = SESSIONS.map(s => `
-        <article class="session-card">
+        <div class="session-card">
           <div class="session-header">
-            ${s.badge ? `<span class="session-badge">${s.badge}</span>` : ''}
             <h3>${s.title}</h3>
             <div class="session-date">${s.date}</div>
+            ${s.spots ? `<span class="session-badge">${s.spots}</span>` : ''}
           </div>
           <div class="session-body">
             <div class="session-meta">
-              <div class="meta-item"><span>${s.time}</span></div>
-              <div class="meta-item"><span>${s.location}</span></div>
-              <div class="meta-item"><span>${typeof s.spots === 'number' ? s.spots + ' spots left' : s.spots}</span></div>
+              <div class="meta-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> ${s.location || 'Fieldhouse'}</div>
+              <div class="meta-item"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg> ${s.time}</div>
             </div>
-            ${s.description ? `<p style="font-size:0.9rem;color:#666;margin-bottom:1rem;">${s.description}</p>` : ''}
-            <a href="#register" class="btn">Register interest</a>
+            <a href="#register" class="btn">Register Interest</a>
           </div>
-        </article>
+        </div>
       `).join('');
     }
 
-    function formatTimestamp(d) {
-      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-      let h = d.getHours();
-      const m = String(d.getMinutes()).padStart(2, '0');
-      const ampm = h >= 12 ? 'PM' : 'AM';
-      h = h % 12;
-      if (h === 0) h = 12;
-      return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear() + ' ' + h + ':' + m + ' ' + ampm;
-    }
-
-    async function handleRegister(e) {
+    function handleRegister(e) {
       e.preventDefault();
-      const form = document.getElementById('reg-form');
-      const success = document.getElementById('form-success');
-      const submitBtn = form.querySelector('.form-submit') || form.querySelector('button[type="submit"]');
-
+      const form = e.target;
       const data = {
-        timestamp: formatTimestamp(new Date()),
         firstName: form.firstName.value.trim(),
         lastName: form.lastName.value.trim(),
         email: form.email.value.trim(),
         phone: form.phone.value.trim(),
-        sessionId: '',
-        sessionLabel: 'Interest / waitlist (no session scheduled yet)',
+        playerName: form.playerName.value.trim(),
         experience: form.experience.value,
-        notes: form.notes.value.trim()
+        notes: form.notes.value.trim(),
+        timestamp: formatTimestamp(),
+        sessionLabel: 'Nov–Dec 2026 interest (preferred day in notes if given)',
       };
-
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending…';
-      }
-
-      try {
-        await fetch(GOOGLE_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(data)
-        });
+      const btn = form.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      }).then(() => {
         form.style.display = 'none';
-        success.classList.add('show');
-      } catch (err) {
-        console.error('Registration failed:', err);
-        alert('Something went wrong. Please try again or contact us directly.');
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit Interest';
-        }
-      }
+        document.getElementById('form-success').classList.add('show');
+      }).catch(() => {
+        btn.disabled = false;
+        btn.textContent = 'Submit Interest';
+        alert('Something went wrong. Please try again or email us directly.');
+      });
       return false;
     }
-
-    function resetForm() {
-      const form = document.getElementById('reg-form');
-      const success = document.getElementById('form-success');
-      form.reset();
-      form.style.display = 'block';
-      success.classList.remove('show');
-      const submitBtn = form.querySelector('.form-submit') || form.querySelector('button[type="submit"]');
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit Interest';
-      }
-    }
-
-    document.querySelectorAll('nav a').forEach(a => {
-      a.addEventListener('click', () => {
-        document.querySelector('nav').classList.remove('open');
-      });
-    });
 
     document.getElementById('year').textContent = new Date().getFullYear();
     renderSessions();
