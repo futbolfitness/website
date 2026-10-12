@@ -209,6 +209,14 @@
               <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" />
             </div>
             <div class="form-group">
+              <label for="gender">Gender *</label>
+              <select id="gender" name="gender" required>
+                <option value="">Select…</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+            <div class="form-group">
               <label for="preferredSession">Preferred session *</label>
               <select id="preferredSession" name="preferredSession" required>
                 <option value="">Select a time…</option>
@@ -291,6 +299,7 @@
         lastName: form.lastName.value.trim(),
         email: form.email.value.trim(),
         phone: form.phone.value.trim(),
+        gender: form.gender.value,
         sessionId: preferred,
         sessionLabel: preferred ? ('Nov–Dec 2026 · ' + preferred) : 'Nov–Dec 2026 interest',
         experience: form.experience.value,
