@@ -1,1 +1,319 @@
-PLACEHOLDER_REGISTER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | Futbol Fitness</title>
+  <meta name="description" content="Register for Futbol Fitness Nov–Dec sessions. Pay with Venmo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red: #9B1B1B;
+      --red-dark: #6B0F0F;
+      --red-light: #C23A3A;
+      --white: #FFFFFF;
+      --off-white: #F8F5F5;
+      --black: #111111;
+      --gray: #555555;
+      --shadow: 0 8px 30px rgba(155, 27, 27, 0.25);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--off-white); color: var(--black); line-height: 1.6; overflow-x: hidden; }
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(155, 27, 27, 0.97); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .logo-link { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .logo-link img { height: 48px; width: auto; }
+    .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--white); letter-spacing: 1px; line-height: 1; }
+    nav { display: flex; gap: 0.25rem; }
+    nav a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 0.5rem 1rem; border-radius: 6px; transition: background 0.2s; }
+    nav a:hover, nav a.active { background: rgba(255,255,255,0.15); }
+    .nav-cta { background: var(--white) !important; color: var(--red) !important; margin-left: 0.5rem; }
+    .menu-toggle { display: none; background: none; border: none; color: white; font-size: 1.75rem; cursor: pointer; }
+    .btn { display: inline-block; padding: 0.9rem 2rem; font-weight: 700; font-size: 1rem; border-radius: 8px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; border: none; letter-spacing: 0.5px; }
+    .btn-primary { background: var(--red); color: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .btn-primary:hover { transform: translateY(-2px); background: var(--red-dark); }
+    section { padding: 4.5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vw, 3.2rem); color: var(--red); text-align: center; letter-spacing: 2px; margin-bottom: 0.5rem; }
+    .section-subtitle { text-align: center; color: var(--gray); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .register-info h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--red); margin-bottom: 1rem; letter-spacing: 1px; }
+    .register-info p { color: var(--gray); margin-bottom: 1.25rem; }
+    .register-info ul { list-style: none; margin-bottom: 1.5rem; }
+    .register-info li { padding: 0.5rem 0; padding-left: 1.75rem; position: relative; color: var(--gray); }
+    .register-info li::before { content: "✓"; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+    .form-card { background: var(--white); padding: 2rem; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.06); border: 1px solid rgba(155,27,27,0.12); }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; color: var(--black); }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.85rem 1rem; border: 2px solid #e0d5d5; border-radius: 8px; font-size: 1rem; font-family: inherit; transition: border-color 0.2s; background: var(--white); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(155,27,27,0.15); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit { width: 100%; padding: 1rem; font-size: 1.1rem; margin-top: 0.5rem; }
+    .form-success { display: none; text-align: center; padding: 2rem 1rem; }
+    .form-success.show { display: block; }
+    .form-success svg { width: 64px; height: 64px; fill: #28a745; margin-bottom: 1rem; }
+    .form-success h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--red); margin-bottom: 0.5rem; }
+    .page-main { margin-top: 72px; padding: 3rem 1.5rem 4rem; background: var(--off-white); min-height: calc(100vh - 72px); }
+    .payment-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      border: 1px solid rgba(155,27,27,0.12);
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .payment-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--red);
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    .payment-card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem; }
+    .payment-card img.venmo-qr {
+      width: 220px;
+      height: 220px;
+      max-width: 100%;
+      border-radius: 12px;
+      border: 1px solid #eee;
+      background: #fff;
+    }
+    .payment-card .handle {
+      margin-top: 0.75rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+    .payment-card a.venmo-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      color: var(--red);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .payment-card a.venmo-link:hover { text-decoration: underline; }
+    .register-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2.5rem;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    footer { background: var(--red-dark); color: var(--white); padding: 3rem 1.5rem 1.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2rem; }
+    .footer-brand img { height: 56px; margin-bottom: 1rem; }
+    .footer-brand p { opacity: 0.85; font-size: 0.95rem; max-width: 280px; }
+    .footer-col h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 1px; margin-bottom: 1rem; }
+    .footer-col a, .footer-col p { color: rgba(255,255,255,0.85); text-decoration: none; display: block; margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.15); text-align: center; font-size: 0.85rem; opacity: 0.7; }
+    @media (max-width: 900px) {
+      .register-layout { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--red-dark); flex-direction: column; padding: 1rem; }
+      nav.open { display: flex; }
+      .menu-toggle { display: block; }
+      .nav-cta { margin-left: 0; text-align: center; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-link">
+        <img src="logo-white.png" alt="Futbol Fitness Logo" />
+        <span class="logo-text">Futbol Fitness</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#schedule">Schedule</a>
+        <a href="register.html" class="nav-cta">Register Here</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="container">
+      <h1 class="section-title">Register</h1>
+      <p class="section-subtitle">November & December sessions are open. Choose a preferred time, then pay via Venmo.</p>
+
+      <div class="register-layout">
+        <div>
+          <div class="register-info" style="margin-bottom: 1.5rem;">
+            <h3>What Sessions Look Like</h3>
+            <p>One hour. Six athletes. Focused work on the body so you can play stronger and safer.</p>
+            <ul>
+              <li>Speed, agility, quickness, balance, strength & mobility</li>
+              <li>Very little ball work — this is athletic development</li>
+              <li>Build weaker areas to help prevent injury</li>
+              <li>Improve dynamic movement so skills transfer better on the field</li>
+              <li>Fieldhouse space locked for Nov–Dec</li>
+            </ul>
+            <p style="font-size: 0.9rem; color: var(--gray);">Bring water and athletic wear. All levels welcome.</p>
+          </div>
+
+          <div class="payment-card">
+            <h3>Pay with Venmo</h3>
+            <p>Scan the QR code or open the link. Memo: player first name + Futbol Fitness.</p>
+            <img class="venmo-qr" src="https://quickchart.io/qr?size=400&text=https%3A%2F%2Fvenmo.com%2Fcode%3Fuser_id%3D1985771955290112670%26created%3D1791913163" alt="Venmo QR code for Mason Maddox @ZidarMaddox" width="220" height="220" />
+            <p class="handle">@ZidarMaddox</p>
+            <a class="venmo-link" href="https://venmo.com/code?user_id=1985771955290112670&created=1791913163" target="_blank" rel="noopener">Open Venmo payment link</a>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <form id="reg-form" onsubmit="return handleRegister(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required placeholder="Alex" />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required placeholder="Rivera" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="you@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" />
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender *</label>
+              <select id="gender" name="gender" required>
+                <option value="">Select…</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="preferredSession">Preferred session *</label>
+              <select id="preferredSession" name="preferredSession" required>
+                <option value="">Select a time…</option>
+                <option value="Tuesday 5:00–6:00 PM">Tuesday 5:00–6:00 PM</option>
+                <option value="Tuesday 6:00–7:00 PM">Tuesday 6:00–7:00 PM</option>
+                <option value="Wednesday 6:00–7:00 PM">Wednesday 6:00–7:00 PM</option>
+                <option value="Thursday 5:00–6:00 PM">Thursday 5:00–6:00 PM</option>
+                <option value="Thursday 6:00–7:00 PM">Thursday 6:00–7:00 PM</option>
+                <option value="Flexible / any">Flexible — any of the above</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="experience">Soccer / Fitness Experience</label>
+              <select id="experience" name="experience">
+                <option value="beginner">Beginner – new to this</option>
+                <option value="some">Some experience</option>
+                <option value="regular">Play or train regularly</option>
+                <option value="advanced">Advanced / competitive</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="notes">Anything else we should know?</label>
+              <textarea id="notes" name="notes" rows="3" placeholder="Injuries, goals, second-choice time, questions…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">Submit</button>
+          </form>
+          <div class="form-success" id="form-success">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <h3>You're on the list!</h3>
+            <p>Thanks — we'll confirm your preferred time by email. Don't forget to pay via Venmo (@ZidarMaddox).</p>
+            <button class="btn btn-primary" style="margin-top: 1.25rem;" onclick="resetForm()">Submit Another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo-white.png" alt="Futbol Fitness" />
+        <p>Small-group athletic development for soccer players — speed, strength, balance, and injury resilience.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#schedule">Schedule</a>
+        <a href="register.html">Register Here</a>
+        <a href="index.html#about">About</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <a href="tel:+14406220531">Text or call (440) 622-0531</a>
+        <a href="mailto:futbolfitnessohio@gmail.com">futbolfitnessohio@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Futbol Fitness. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZnQ7k5SX5l2Nt0sXcg8P4Z0Ohd-A6oZYQtppS1iBYTEB5S8Sprb5pA9S6eeyXo1W4/exec';
+    function formatTimestamp(d) {
+      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      let h = d.getHours(), ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12; h = h ? h : 12;
+      const m = String(d.getMinutes()).padStart(2, '0');
+      return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear() + ' ' + h + ':' + m + ' ' + ampm;
+    }
+    async function handleRegister(e) {
+      e.preventDefault();
+      const form = document.getElementById('reg-form');
+      const success = document.getElementById('form-success');
+      const submitBtn = form.querySelector('.form-submit');
+      const preferred = form.preferredSession.value;
+      const data = {
+        timestamp: formatTimestamp(new Date()),
+        firstName: form.firstName.value.trim(),
+        lastName: form.lastName.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        gender: form.gender.value,
+        sessionId: preferred,
+        sessionLabel: preferred ? ('Nov–Dec 2026 · ' + preferred) : 'Nov–Dec 2026 interest',
+        experience: form.experience.value,
+        notes: form.notes.value.trim()
+      };
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+      try {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(data)
+        });
+        form.style.display = 'none';
+        success.classList.add('show');
+      } catch (err) {
+        console.error(err);
+        alert('Something went wrong. Please try again.');
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit'; }
+      }
+      return false;
+    }
+    function resetForm() {
+      const form = document.getElementById('reg-form');
+      const success = document.getElementById('form-success');
+      form.reset();
+      form.style.display = 'block';
+      success.classList.remove('show');
+      const btn = form.querySelector('.form-submit');
+      if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
