@@ -212,17 +212,12 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="experience">Soccer / Fitness Experience</label>
-              <select id="experience" name="experience">
-                <option value="beginner">Beginner – new to this</option>
-                <option value="some">Some experience</option>
-                <option value="regular">Play or train regularly</option>
-                <option value="advanced">Advanced / competitive</option>
-              </select>
+              <label for="experience">Where do you want to improve? *</label>
+              <textarea id="experience" name="experience" rows="3" required placeholder="e.g. mobility / range of motion, weak ankles, acceleration, balance, strength, recovering from injury…"></textarea>
             </div>
             <div class="form-group">
               <label for="notes">Anything else we should know?</label>
-              <textarea id="notes" name="notes" rows="3" placeholder="Injuries, goals, second-choice time, questions…"></textarea>
+              <textarea id="notes" name="notes" rows="2" placeholder="Injuries, second-choice time, questions…"></textarea>
             </div>
             <button type="submit" class="btn btn-primary form-submit">Submit</button>
           </form>
@@ -285,7 +280,7 @@
         gender: form.gender.value,
         sessionId: preferred,
         sessionLabel: preferred ? ('Nov–Dec 2026 · ' + preferred) : 'Nov–Dec 2026 interest',
-        experience: form.experience.value,
+        experience: form.experience.value.trim(),
         notes: form.notes.value.trim()
       };
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
