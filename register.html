@@ -144,7 +144,7 @@
   <main class="page-main">
     <div class="container">
       <h1 class="section-title">Register</h1>
-      <p class="section-subtitle">November &amp; December sessions are open. <strong style="color: var(--red);">$175 for 6 weeks</strong>. Boys: Tue &amp; Thu · Girls: Wed 5–6 PM. Select gender first, then a preferred time.</p>
+      <p class="section-subtitle">November &amp; December sessions are open. <strong style="color: var(--red);">$175 for 6 weeks</strong>. Boys: Tue &amp; Thu · Girls: Wed 6–7 PM. Select gender first, then a preferred time.</p>
 
       <div class="register-layout">
         <div>
@@ -156,7 +156,7 @@
               <li>Athletic development first — very little ball work</li>
               <li>Build weaker areas to help prevent injury</li>
               <li>Improve dynamic movement so skills transfer better on the field</li>
-              <li>Boys: Tue &amp; Thu · Girls: Wed 5–6 PM</li>
+              <li>Boys: Tue &amp; Thu · Girls: Wed 6–7 PM</li>
               <li>Fieldhouse space locked for Nov–Dec</li>
             </ul>
             <p style="font-size: 0.9rem; color: var(--gray);">Bring water and athletic wear. All levels welcome.</p>
@@ -205,7 +205,7 @@
               <select id="preferredSession" name="preferredSession" required disabled>
                 <option value="">Select gender first…</option>
               </select>
-              <p id="session-hint" style="font-size: 0.85rem; color: var(--gray); margin-top: 0.4rem;">Boys train Tue &amp; Thu. Girls train Wed 5–6 PM only.</p>
+              <p id="session-hint" style="font-size: 0.85rem; color: var(--gray); margin-top: 0.4rem;">Boys train Tue &amp; Thu. Girls train Wed 6–7 PM only.</p>
             </div>
             <div class="form-group">
               <label for="experience">Soccer / Fitness Experience</label>
@@ -319,7 +319,7 @@
       { value: 'Flexible — any boys time', label: 'Flexible — any boys time (Tue/Thu)' }
     ];
     const GIRL_TIMES = [
-      { value: 'Wednesday 5:00–6:00 PM', label: 'Wednesday 5:00–6:00 PM' }
+      { value: 'Wednesday 6:00–7:00 PM', label: 'Wednesday 6:00–7:00 PM' }
     ];
     function updateSessionOptions() {
       const gender = document.getElementById('gender').value;
@@ -329,7 +329,7 @@
       if (!gender) {
         sel.disabled = true;
         sel.innerHTML = '<option value="">Select gender first…</option>';
-        if (hint) hint.textContent = 'Boys train Tue & Thu. Girls train Wed 5–6 PM only.';
+        if (hint) hint.textContent = 'Boys train Tue & Thu. Girls train Wed 6–7 PM only.';
         return;
       }
       const times = gender === 'Female' ? GIRL_TIMES : BOY_TIMES;
@@ -346,7 +346,7 @@
       });
       if (hint) {
         hint.textContent = gender === 'Female'
-          ? 'Girls sessions: Wednesday 5:00–6:00 PM only.'
+          ? 'Girls sessions: Wednesday 6:00–7:00 PM only.'
           : 'Boys sessions: Tuesdays & Thursdays (5–6 or 6–7 PM).';
       }
     }
