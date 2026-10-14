@@ -144,7 +144,7 @@
   <main class="page-main">
     <div class="container">
       <h1 class="section-title">Register</h1>
-      <p class="section-subtitle">November &amp; December sessions are open. <strong style="color: var(--red);">$175 for 6 weeks</strong>. Boys: Tue &amp; Thu · Girls: Wed 6–7 PM. Select gender first, then a preferred time.</p>
+      <p class="section-subtitle">November & December sessions are open. <strong style="color: var(--red);">$175 for 6 weeks</strong>. Boys: Tue & Thu · Girls: Wed 6–7 PM. Select gender first, then a preferred time.</p>
 
       <div class="register-layout">
         <div>
@@ -152,11 +152,11 @@
             <h3>What Sessions Look Like</h3>
             <p>One hour. Six athletes. Focused work on the body so you can play stronger and safer.</p>
             <ul>
-              <li>Speed, agility, quickness, balance, strength &amp; mobility</li>
+              <li>Speed, agility, quickness, balance, strength & mobility</li>
               <li>Athletic development first — very little ball work</li>
               <li>Build weaker areas to help prevent injury</li>
               <li>Improve dynamic movement so skills transfer better on the field</li>
-              <li>Boys: Tue &amp; Thu · Girls: Wed 6–7 PM</li>
+              <li>Boys: Tue & Thu · Girls: Wed 6–7 PM</li>
               <li>Fieldhouse space locked for Nov–Dec</li>
             </ul>
             <p style="font-size: 0.9rem; color: var(--gray);">Bring water and athletic wear. All levels welcome.</p>
@@ -166,9 +166,9 @@
           <div class="payment-card">
             <h3>Payment</h3>
             <p><strong style="color: var(--red); font-size: 1.15rem;">$175 for 6 weeks</strong><br>Pay via Venmo after you register. Scan the QR code or open the link. Memo: player first name + Futbol Fitness.</p>
-            <img class="venmo-qr" src="https://quickchart.io/qr?size=400&amp;text=https%3A%2F%2Fvenmo.com%2Fcode%3Fuser_id%3D1985771955290112670%26created%3D1791913163" alt="Venmo QR code for Mason Maddox" width="220" height="220" />
+            <img class="venmo-qr" src="https://quickchart.io/qr?size=400&text=https%3A%2F%2Fvenmo.com%2Fcode%3Fuser_id%3D1985771955290112670%26created%3D1791913163" alt="Venmo QR code for Mason Maddox" width="220" height="220" />
             <p class="handle">Mason Maddox</p>
-            <a class="venmo-link" href="https://venmo.com/code?user_id=1985771955290112670&amp;created=1791913163" target="_blank" rel="noopener">Open Venmo payment link</a>
+            <a class="venmo-link" href="https://venmo.com/code?user_id=1985771955290112670&created=1791913163" target="_blank" rel="noopener">Open Venmo payment link</a>
           </div>
         </div>
 
@@ -205,7 +205,6 @@
               <select id="preferredSession" name="preferredSession" required disabled>
                 <option value="">Select gender first…</option>
               </select>
-              <p id="session-hint" style="font-size: 0.85rem; color: var(--gray); margin-top: 0.4rem;">Boys train Tue &amp; Thu. Girls train Wed 6–7 PM only.</p>
             </div>
             <div class="form-group">
               <label for="experience">Soccer / Fitness Experience</label>
@@ -324,12 +323,10 @@
     function updateSessionOptions() {
       const gender = document.getElementById('gender').value;
       const sel = document.getElementById('preferredSession');
-      const hint = document.getElementById('session-hint');
       sel.innerHTML = '';
       if (!gender) {
         sel.disabled = true;
         sel.innerHTML = '<option value="">Select gender first…</option>';
-        if (hint) hint.textContent = 'Boys train Tue & Thu. Girls train Wed 6–7 PM only.';
         return;
       }
       const times = gender === 'Female' ? GIRL_TIMES : BOY_TIMES;
@@ -344,11 +341,6 @@
         opt.textContent = t.label;
         sel.appendChild(opt);
       });
-      if (hint) {
-        hint.textContent = gender === 'Female'
-          ? 'Girls sessions: Wednesday 6:00–7:00 PM only.'
-          : 'Boys sessions: Tuesdays & Thursdays (5–6 or 6–7 PM).';
-      }
     }
     document.getElementById('gender').addEventListener('change', updateSessionOptions);
     document.getElementById('year').textContent = new Date().getFullYear();
